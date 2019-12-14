@@ -34,10 +34,7 @@ export class Login extends React.Component {
 
   handleChangePassword(auth, dispatch) {
     return changePassword(
-      R.compose(
-        R.merge(auth),
-        R.pick(['cognitoUser'])
-      )(this.state)
+      R.compose(R.merge(auth), R.pick(['cognitoUser']))(this.state)
     ).then(result => dispatch(userLogin(result)));
   }
 
@@ -70,11 +67,10 @@ export class Login extends React.Component {
               <LockIcon />
             </Avatar>
           </div>
-          {step === 'login' ? (
-            <DefaultLoginForm login={this.handleLogin} />
-          ) : step === 'change_password' ? (
+          {step === 'login' && <DefaultLoginForm login={this.handleLogin} />}
+          {step === 'change_password' && (
             <ChangePasswordForm changePassword={this.handleChangePassword} />
-          ) : null}
+          )}
         </Card>
         <Notification />
       </div>

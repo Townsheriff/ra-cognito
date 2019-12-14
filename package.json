@@ -25,26 +25,26 @@
   "author": "Ben Briggs <ben.briggs@thedistance.co.uk>",
   "license": "MIT",
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.2.2",
-    "@babel/plugin-transform-react-jsx": "^7.2.0",
-    "@babel/preset-env": "^7.2.3",
-    "@material-ui/core": "^1.4.3",
+    "@babel/cli": "^7.7.5",
+    "@babel/core": "^7.7.5",
+    "@babel/plugin-transform-react-jsx": "^7.7.4",
+    "@babel/preset-env": "^7.7.6",
+    "@material-ui/core": "^4.7.2",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^23.6.0",
+    "babel-jest": "^24.9.0",
     "classnames": "^2.2.6",
     "eslint-config-prettier": "^3.3.0",
     "eslint-plugin-react": "^7.11.1",
-    "husky": "^1.3.0",
-    "jest": "^23.6.0",
-    "lint-staged": "^8.1.0",
-    "prettier": "^1.15.3",
-    "ra-core": "^2.5.2",
-    "ra-ui-materialui": "^2.5.1",
-    "ramda": "^0.25.0",
-    "react": "^16.5.2",
-    "standard-version": "^4.4.0",
-    "xo": "^0.23.0"
+    "husky": "^3.1.0",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.5.0",
+    "prettier": "^1.19.1",
+    "ra-core": "^3.0.4",
+    "ra-ui-materialui": "^3.0.4",
+    "ramda": "^0.26.1",
+    "react": "^16.12.0",
+    "standard-version": "^7.0.1",
+    "xo": "^0.25.3"
   },
   "lint-staged": {
     "*.js": [
@@ -100,19 +100,19 @@
   "peerDependencies": {
     "@material-ui/core": "^1.4.0",
     "@material-ui/icons": "^3.0.1",
-    "amazon-cognito-identity-js": "^3.0.3",
-    "aws-amplify": "^1.1.10",
+    "amazon-cognito-identity-js": "^3.2.0",
+    "aws-amplify": "^2.2.0",
     "classnames": "2.2.6",
     "prop-types": "^15.6.2",
-    "ra-core": "^2.5.2",
-    "ra-ui-materialui": "^2.5.1",
-    "ramda": "^0.25.0",
-    "react": "^16.5.0",
-    "react-admin": "^2.5.1",
-    "react-dom": "^16.5.0",
-    "react-redux": "5.0.7",
-    "recompose": "0.26.0",
-    "redux-form": "7.4.2"
+    "ra-core": "^3.0.4",
+    "ra-ui-materialui": "^3.0.4",
+    "ramda": "^0.26.1",
+    "react": "^16.12.0",
+    "react-admin": "^3.0.4",
+    "react-dom": "^16.12.0",
+    "react-redux": "7.1.3",
+    "recompose": "0.30.0",
+    "redux-form": "8.2.6"
   },
   "babel": {
     "presets": [
@@ -128,5 +128,10 @@
     "plugins": [
       "@babel/plugin-transform-react-jsx"
     ]
+  },
+  "dependencies": {
+    "amazon-cognito-identity-js": "^3.2.0",
+    "aws-amplify": "^2.2.0",
+    "react-admin": "^3.0.4"
   }
 }
