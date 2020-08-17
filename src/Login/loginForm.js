@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Form, Field } from 'react-final-form';
 import { connect } from 'react-redux';
 import compose from 'recompose/compose';
@@ -69,12 +68,6 @@ export const LoginForm = ({ classes, translate, login }) => (
     )}
   </Form>
 );
-
-LoginForm.propTypes = {
-  ...propTypes,
-  classes: PropTypes.object,
-  redirectTo: PropTypes.string,
-};
 
 const enhance = compose(
   withStyles(styles),

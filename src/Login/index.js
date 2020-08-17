@@ -1,6 +1,5 @@
 import * as R from 'ramda';
 import React from 'react';
-import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import defaultTheme from 'ra-ui-materialui/lib/defaultTheme';
 import Notification from 'ra-ui-materialui/lib/layout/Notification';
@@ -77,16 +76,6 @@ export class Login extends React.Component {
     );
   }
 }
-
-Login.propTypes = {
-  className: PropTypes.string,
-  authProvider: PropTypes.func,
-  classes: PropTypes.object,
-  input: PropTypes.object,
-  meta: PropTypes.object,
-  previousRoute: PropTypes.string,
-  loginForm: PropTypes.element,
-};
 
 Login.defaultProps = {
   theme: defaultTheme,

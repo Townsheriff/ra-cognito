@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Field, propTypes, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import compose from 'recompose/compose';
@@ -63,12 +62,6 @@ export const ChangePasswordForm = ({
     </CardActions>
   </form>
 );
-
-ChangePasswordForm.propTypes = {
-  ...propTypes,
-  classes: PropTypes.object,
-  redirectTo: PropTypes.string,
-};
 
 const enhance = compose(
   withStyles(styles),
