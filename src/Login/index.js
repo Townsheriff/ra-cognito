@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import defaultTheme from 'ra-ui-materialui/lib/defaultTheme';
 import Notification from 'ra-ui-materialui/lib/layout/Notification';
 import { userLogin } from 'ra-core';
+import { connect } from 'react-redux';
 
 import classnames from 'classnames';
 import Card from '@material-ui/core/Card';
@@ -37,7 +38,7 @@ export class Login extends React.Component {
     ).then(result => dispatch(userLogin(result)));
   }
 
-  handleLogin(auth, dispatch) {
+  handleLogin(auth) {
     return login(auth)
       .then(cognitoUser => {
         if (isNewPasswordRequired(cognitoUser)) {
@@ -46,10 +47,10 @@ export class Login extends React.Component {
             step: 'change_password',
           });
         } else {
-          dispatch(userLogin(cognitoUser));
+          this.dispatch(userLogin(cognitoUser));
         }
       })
-      .catch(error => dispatch(userLogin({ error })));
+      .catch(error => this.props.dispatch(userLogin({ error })));
   }
 
   render() {
@@ -81,4 +82,4 @@ Login.defaultProps = {
   theme: defaultTheme,
 };
 
-export default withStyles(pageStyles)(Login);
+export default withStyles(pageStyles)(connect()(Login));
