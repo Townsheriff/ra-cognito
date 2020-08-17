@@ -1,7 +1,7 @@
 /* eslint-disable prefer-promise-reject-errors */
 
 import * as R from 'ramda';
-import { Auth } from 'aws-amplify';
+import Auth, { CognitoUser } from '@aws-amplify/auth';
 import {
   AUTH_LOGIN,
   AUTH_LOGOUT,
@@ -9,7 +9,6 @@ import {
   AUTH_ERROR,
   AUTH_GET_PERMISSIONS,
 } from 'react-admin';
-import { CognitoUser } from 'amazon-cognito-identity-js';
 
 // applyBinaryFn = (* -> a) -> [*] -> a
 export const applyBinaryFn = f => R.apply(R.binary(f));
