@@ -28,7 +28,10 @@ const renderInput = ({
 );
 
 export const LoginForm = ({ classes, translate, login }) => (
-  <Form onSubmit={login} form="signIn" validate={validate}>
+  <Form
+    onSubmit={login}
+    // validate={validate} // TODO: fix validation
+  >
     {({ handleSubmit, submitting }) => (
       <form onSubmit={handleSubmit}>
         <div className={classes.form}>
