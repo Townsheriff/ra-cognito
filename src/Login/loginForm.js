@@ -72,8 +72,7 @@ export const LoginForm = ({ classes, translate, login }) => (
 const enhance = compose(
   withStyles(styles),
   translate,
-  connect(mapStateToProps),
-  LoginForm
+  connect(mapStateToProps)
 );
 
 export default enhance(LoginForm);
