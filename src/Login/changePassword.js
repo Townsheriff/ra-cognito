@@ -1,5 +1,6 @@
 import React from 'react';
-import { Field, propTypes, reduxForm } from 'redux-form';
+import { Form, Field } from 'react-final-form';
+import { Typography } from '@material-ui/core';
 import { connect } from 'react-redux';
 import compose from 'recompose/compose';
 import CardActions from '@material-ui/core/CardActions';
@@ -10,7 +11,6 @@ import { withStyles } from '@material-ui/core/styles';
 import { translate } from 'ra-core';
 import styles from './formStyles';
 import mapStateToProps from './isLoading';
-import validate from './validateChangePassword';
 
 // see http://redux-form.com/6.4.3/examples/material-ui/
 const renderInput = ({
@@ -27,50 +27,49 @@ const renderInput = ({
   />
 );
 
-export const ChangePasswordForm = ({
-  classes,
-  isLoading,
-  handleSubmit,
-  translate,
-  changePassword,
-}) => (
-  <form onSubmit={handleSubmit(changePassword)}>
-    <div className={classes.form}>
-      <p>Please change your password to continue signing in.</p>
-      <div className={classes.input}>
-        <Field
-          id="password"
-          name="password"
-          component={renderInput}
-          label={translate('ra.auth.password')}
-          type="password"
-          disabled={isLoading}
-        />
-      </div>
-    </div>
-    <CardActions>
-      <Button
-        variant="contained"
-        type="submit"
-        color="primary"
-        disabled={isLoading}
-        className={classes.button}
-      >
-        {isLoading && <CircularProgress size={25} thickness={2} />}
-        {'Change Password'}
-      </Button>
-    </CardActions>
-  </form>
+export const ChangePasswordForm = ({ classes, translate, changePassword }) => (
+  <Form
+    onSubmit={changePassword}
+    // TODO: add validation
+  >
+    {({ handleSubmit, submitting }) => (
+      <form onSubmit={handleSubmit}>
+        <div className={classes.form}>
+          <Typography variant={'body1'}>
+            Please change your password to continue signing in.
+          </Typography>
+          <div className={classes.input}>
+            <Field
+              id="password"
+              name="password"
+              component={renderInput}
+              label={translate('ra.auth.password')}
+              type="password"
+              disabled={submitting}
+            />
+          </div>
+        </div>
+        <CardActions>
+          <Button
+            variant="contained"
+            type="submit"
+            color="primary"
+            disabled={submitting}
+            className={classes.button}
+          >
+            {submitting && <CircularProgress size={25} thickness={2} />}
+            {'Change Password'}
+          </Button>
+        </CardActions>
+      </form>
+    )}
+  </Form>
 );
 
 const enhance = compose(
   withStyles(styles),
   translate,
-  connect(mapStateToProps),
-  reduxForm({
-    form: 'signIn',
-    validate,
-  })
+  connect(mapStateToProps)
 );
 
 export default enhance(ChangePasswordForm);

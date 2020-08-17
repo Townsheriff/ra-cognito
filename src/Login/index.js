@@ -32,10 +32,10 @@ export class Login extends React.Component {
     this.handleLogin = this.handleLogin.bind(this);
   }
 
-  handleChangePassword(auth, dispatch) {
+  handleChangePassword(auth) {
     return changePassword(
       R.compose(R.merge(auth), R.pick(['cognitoUser']))(this.state)
-    ).then(result => dispatch(userLogin(result)));
+    ).then(result => this.props.dispatch(userLogin(result)));
   }
 
   handleLogin(auth) {
@@ -47,7 +47,7 @@ export class Login extends React.Component {
             step: 'change_password',
           });
         } else {
-          this.dispatch(userLogin(cognitoUser));
+          this.props.dispatch(userLogin(cognitoUser));
         }
       })
       .catch(error => this.props.dispatch(userLogin({ error })));

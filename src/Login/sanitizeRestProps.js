@@ -9,6 +9,7 @@ const sanitizeRestProps = omit([
   'array',
   'theme',
   'staticContext',
+  'dispatch',
 ]);
 
 export default sanitizeRestProps;
