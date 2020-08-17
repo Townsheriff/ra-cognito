@@ -103,16 +103,17 @@
     "@material-ui/icons": "^4.9.1",
     "amazon-cognito-identity-js": "^3.2.0",
     "aws-amplify": "^2.2.0",
+    "prop-types": "^15.6.2",
     "ra-core": "^3.0.4",
+    "ra-ui-materialui": "^3.0.4",
+    "ramda": "^0.26.1",
     "react": "^16.12.0",
     "react-admin": "^3.0.4",
     "react-dom": "^16.12.0",
+    "react-final-form": "^6.5.1",
     "react-redux": "^7.2.1",
-    "redux-form": "8.2.6",
-    "ra-ui-materialui": "^3.0.4",
-    "prop-types": "^15.6.2",
-    "ramda": "^0.26.1",
-    "recompose": "0.30.0"
+    "recompose": "0.30.0",
+    "redux-form": "8.2.6"
   },
   "babel": {
     "presets": [
