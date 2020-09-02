@@ -35,7 +35,10 @@ export const login = params => {
     return Promise.reject(error);
   }
 
-  return R.compose(signIn, R.props(['username', 'password']))(params);
+  return R.compose(
+    signIn,
+    R.props(['username', 'password', 'captchaToken'])
+  )(params);
 };
 
 export const logout = () => Auth.signOut({ global: true });

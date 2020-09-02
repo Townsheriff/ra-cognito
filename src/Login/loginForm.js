@@ -11,6 +11,7 @@ import { translate } from 'ra-core';
 import styles from './formStyles';
 import mapStateToProps from './isLoading';
 import validate from './validateLoginForm';
+import { ReCAPTCHA } from 'react-google-recaptcha';
 
 // see http://redux-form.com/6.4.3/examples/material-ui/
 const renderInput = ({
@@ -52,6 +53,13 @@ export const LoginForm = ({ classes, translate, login }) => (
               label={translate('ra.auth.password')}
               type="password"
               disabled={submitting}
+            />
+          </div>
+          <div className={classes.input}>
+            <ReCAPTCHA
+              id="captchaToken"
+              sitekey={process.env.RA_RECAPTCHA_SITE_KEY}
+              size={process.env.RA_RECAPTCHA_SIZE}
             />
           </div>
         </div>

@@ -3,6 +3,8 @@ const validateLoginForm = (values, props) => {
   const { translate } = props;
   if (!values.username) errors.username = translate('ra.validation.required');
   if (!values.password) errors.password = translate('ra.validation.required');
+  if (!values.captchaToken)
+    errors.captchaToken = translate('ra.validation.required');
   return errors;
 };
 
