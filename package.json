@@ -41,7 +41,7 @@
     "ra-core": "^3.0.4",
     "ra-ui-materialui": "^3.0.4",
     "ramda": "^0.27.1",
-    "react-google-recaptcha": "^2.1.0",
+    "react-recaptcha": "^2.3.10",
     "react": "^16.12.0",
     "standard-version": "^7.0.1",
     "xo": "^0.25.3"
@@ -108,7 +108,7 @@
     "react-admin": "^3.0.4",
     "react-dom": "^16.12.0",
     "react-final-form": "^6.5.1",
-    "react-google-recaptcha": "^2.1.0",
+    "react-recaptcha": "^2.3.10",
     "react-redux": "^7.2.1",
     "recompose": "0.30.0"
   },
