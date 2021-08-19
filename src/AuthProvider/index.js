@@ -71,7 +71,22 @@ const AuthProvider = (type, params) => {
   }
 
   if (type === AUTH_GET_PERMISSIONS) {
-    return Promise.resolve({}); // Unimplemented (global permissions)
+    return new Promise(async resolve => {
+      const session = await currentSession();
+      let accessRole = 'User';
+      if (
+        session &&
+        session.accessToken &&
+        session.accessToken.payload &&
+        session.accessToken.payload['cognito:groups']
+      ) {
+        const groups = session.accessToken.payload['cognito:groups'];
+        if (groups.includes('FullAccess')) {
+          accessRole = 'FullAccess';
+        }
+      }
+      resolve(accessRole);
+    });
   }
 
   return Promise.reject(`Unsupported authentication method ${type}.`);
