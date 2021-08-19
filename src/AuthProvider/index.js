@@ -72,20 +72,24 @@ const AuthProvider = (type, params) => {
 
   if (type === AUTH_GET_PERMISSIONS) {
     return new Promise(async resolve => {
-      const session = await currentSession();
-      let accessRole = 'User';
-      if (
-        session &&
-        session.accessToken &&
-        session.accessToken.payload &&
-        session.accessToken.payload['cognito:groups']
-      ) {
-        const groups = session.accessToken.payload['cognito:groups'];
-        if (groups.includes('FullAccess')) {
-          accessRole = 'FullAccess';
+      try {
+        const session = await currentSession();
+        let accessRole = 'User';
+        if (
+          session &&
+          session.accessToken &&
+          session.accessToken.payload &&
+          session.accessToken.payload['cognito:groups']
+        ) {
+          const groups = session.accessToken.payload['cognito:groups'];
+          if (groups.includes('FullAccess')) {
+            accessRole = 'FullAccess';
+          }
         }
+        resolve(accessRole);
+      } catch (error) {
+        resolve({});
       }
-      resolve(accessRole);
     });
   }
 
