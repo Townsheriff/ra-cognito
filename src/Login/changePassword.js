@@ -2,7 +2,6 @@ import React from 'react';
 import { Form, Field } from 'react-final-form';
 import { Typography } from '@material-ui/core';
 import { connect } from 'react-redux';
-import compose from 'recompose/compose';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -11,6 +10,10 @@ import { withStyles } from '@material-ui/core/styles';
 import { translate } from 'ra-core';
 import styles from './formStyles';
 import mapStateToProps from './isLoading';
+
+const compose = (...funcs) =>
+  funcs.reduce((a, b) => (...args) => a(b(...args)), arg => arg)
+
 
 // see http://redux-form.com/6.4.3/examples/material-ui/
 const renderInput = ({
