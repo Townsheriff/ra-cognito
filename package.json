@@ -103,9 +103,9 @@
     "ra-core": "^3.0.4",
     "ra-ui-materialui": "^3.0.4",
     "ramda": "^0.26.1",
-    "react": "^16.12.0",
-    "react-admin": "^3.0.4",
-    "react-dom": "^16.12.0",
+    "react": "^17.0.2",
+    "react-admin": "^3.19.11",
+    "react-dom": "^17.0.2",
     "react-final-form": "^6.5.1",
     "react-redux": "^7.2.1",
     "recompose": "^0.17.0"
